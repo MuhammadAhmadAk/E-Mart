@@ -8,6 +8,6 @@ const passwordHint = "**********";
 const forgotPassword = "ForgotPassword";
 
 const login = "Email";
-const signUp = "Email";
+const signUp = "SignUp";
 const createNewAccount = "Create New Account";
 const loginWith = "Login With ";

@@ -30,8 +30,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextButton(
                         onPressed: () {}, child: forgotPassword.text.make())),
 
-                ourButton(
-                  color: Colors.red,
+                OurButtons(
+                  backcolor: redColor,
+                  textColor: whiteColor,
+                  onPressed: () {},
+                  title: login,
+                ).box.width(context.screenWidth - 50).make(),
+
+                5.heightBox,
+                createNewAccount.text.color(fontGrey).make(),
+                5.heightBox,
+                OurButtons(
+                  backcolor: lightGolden,
+                  textColor: redColor,
+                  onPressed: () {},
+                  title: signUp,
                 ).box.width(context.screenWidth - 50).make()
                 //customTextfield()
               ],
@@ -40,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 .white
                 .rounded
                 .padding(const EdgeInsets.all(15))
-                .width(context.screenWidth - 40)
+                .width(context.screenWidth - 70)
                 .make(),
           ],
         ),
