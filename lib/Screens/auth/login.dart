@@ -1,8 +1,7 @@
-import 'package:emart_app/WidgetsCommon/applogo.dart';
-import 'package:emart_app/WidgetsCommon/custom_textfield.dart';
+import 'package:emart_app/Screens/auth/signup.dart';
 import 'package:emart_app/consts/consts.dart';
 
-import '../consts/list.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Column(
               children: [
                 customTextfield(hint: emailHint, title: email),
-                customTextfield(hint: passwordHint, title: password),
+                passwordField(hint: passwordHint, title: password),
                 Align(
                     alignment: Alignment.bottomRight,
                     child: TextButton(
@@ -47,7 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 OurButtons(
                   backcolor: lightGolden,
                   textColor: redColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(()=>const SignUpScreen(),transition: Transition.upToDown,duration: Duration(seconds: 2));
+                  },
                   title: signUp,
                 ).box.width(context.screenWidth - 50).make(),
                 10.heightBox,

@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   changeScreen() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const LoginScreen());
+      Get.to(() => const LoginScreen(),transition: Transition.leftToRight);
     });
   }
 
