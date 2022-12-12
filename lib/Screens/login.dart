@@ -29,24 +29,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.bottomRight,
                     child: TextButton(
                         onPressed: () {}, child: forgotPassword.text.make())),
-
                 OurButtons(
                   backcolor: redColor,
                   textColor: whiteColor,
                   onPressed: () {},
                   title: login,
                 ).box.width(context.screenWidth - 50).make(),
-
                 5.heightBox,
-                createNewAccount.text.color(fontGrey).make(),
+                Align(
+                    alignment: Alignment.center,
+                    child: TextButton(
+                        onPressed: () {}, child: createNewAccount.text.make())),
                 5.heightBox,
                 OurButtons(
                   backcolor: lightGolden,
                   textColor: redColor,
                   onPressed: () {},
                   title: signUp,
-                ).box.width(context.screenWidth - 50).make()
-                //customTextfield()
+                ).box.width(context.screenWidth - 50).make(),
+                10.heightBox,
+                loginWith.text.make(),
               ],
             )
                 .box
