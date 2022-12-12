@@ -2,6 +2,8 @@ import 'package:emart_app/WidgetsCommon/applogo.dart';
 import 'package:emart_app/WidgetsCommon/custom_textfield.dart';
 import 'package:emart_app/consts/consts.dart';
 
+import '../consts/list.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -13,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return backGroundWidget(Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           children: [
@@ -49,13 +52,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 ).box.width(context.screenWidth - 50).make(),
                 10.heightBox,
                 loginWith.text.make(),
+                10.heightBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children:List.generate(3, (index) => CircleAvatar(
+                    radius: 25,
+                  backgroundColor:lightGrey,
+                  child: Image.asset(socialIconList[index],width: 30,),
+                )),)
               ],
             )
                 .box
                 .white
                 .rounded
                 .padding(const EdgeInsets.all(15))
-                .width(context.screenWidth - 70)
+                .width(context.screenWidth - 70).shadowMd
                 .make(),
           ],
         ),
