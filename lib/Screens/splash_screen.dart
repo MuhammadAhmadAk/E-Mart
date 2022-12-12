@@ -1,6 +1,4 @@
-import 'package:emart_app/WidgetsCommon/applogo.dart';
 import 'package:emart_app/consts/consts.dart';
-import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

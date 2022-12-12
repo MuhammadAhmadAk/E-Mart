@@ -1,5 +1,4 @@
 import 'package:emart_app/Screens/splash_screen.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'consts/consts.dart';
 
 void main() {
