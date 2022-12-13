@@ -1,4 +1,5 @@
 import 'package:emart_app/Screens/auth/signup.dart';
+import 'package:emart_app/Screens/Home_Directory/home.dart';
 import 'package:emart_app/consts/consts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,7 +34,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   OurButtons(
                     backcolor: redColor,
                     textColor: whiteColor,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(()=>const Home(),duration: const Duration(seconds: 1));
+                    },
                     title: login,
                   ).box.width(context.screenWidth - 50).make(),
                   5.heightBox,
