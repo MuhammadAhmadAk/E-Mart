@@ -28,4 +28,10 @@ const  brand = "Brand";
 const topCategories = "Top Categories";
 const featuredCategories = "Featured Categories";
 
+const  womenDress = "Women Dress";
+const  girlsWatches = "Girl Watches";
+const  mobilePhone = "Mobile Phone";
+const  boysGlasses = "Boys Glasses";
+const  tShirts = "T Shirts";
+const  girlsDress = "Girls Dress";
 
