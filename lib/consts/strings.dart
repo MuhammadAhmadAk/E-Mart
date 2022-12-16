@@ -24,14 +24,26 @@ const searchAnyThing = "Search anyThing";
 const todayDeal = "Today's Deal";
 const flashSale = "Flash Sale";
 const topSeller = "Top Seller";
-const  brand = "Brand";
+const brand = "Brand";
 const topCategories = "Top Categories";
 const featuredCategories = "Featured Categories";
 
-const  womenDress = "Women Dress";
-const  girlsWatches = "Girl Watches";
-const  mobilePhone = "Mobile Phone";
-const  boysGlasses = "Boys Glasses";
-const  tShirts = "T Shirts";
-const  girlsDress = "Girls Dress";
+const womenDress = "Women Dress";
+const girlsWatches = "Girl Watches";
+const mobilePhone = "Mobile Phone";
+const boysGlasses = "Boys Glasses";
+const tShirts = "T Shirts";
+const girlsDress = "Girls Dress";
 
+const featuredProduct = "Featured Products";
+
+const womenClothing = "Woman Clothing",
+menClothingFashoin="Men Clothing Fashion",
+computerAccessories="Computer Accessories" ,
+autoMobile="Auto Mobiles",
+kidsToys="Kids Toys",
+jeweleries="Jewellerie",
+sports="Sports",
+cellPhone="Cell Phone",
+furniture="Furniture"
+;
