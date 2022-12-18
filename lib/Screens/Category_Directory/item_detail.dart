@@ -179,6 +179,62 @@ class ItemDetails extends StatelessWidget {
                       .text
                       .color(darkFontGrey)
                       .make(),
+                  10.heightBox,
+                  ListView(
+                    shrinkWrap: true,
+                    children: List.generate(
+                        itemDetailButtonList.length,
+                        (index) => ListTile(
+                              title: itemDetailButtonList[index]
+                                  .text
+                                  .fontFamily(semibold)
+                                  .make(),
+                              trailing: const Icon(Icons.arrow_forward),
+                            )),
+                  ),
+                  10.heightBox,
+                  productsYouMayLike.text
+                      .fontFamily(bold)
+                      .size(16)
+                      .color(darkFontGrey)
+                      .make(),
+                  10.heightBox,
+//copy from home screen
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                          6,
+                          (index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    imgP1,
+                                    width: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  "Laptop 4GB/64Gb"
+                                      .text
+                                      .fontFamily(semibold)
+                                      .color(darkFontGrey)
+                                      .make(),
+                                  10.heightBox,
+                                  "\$600"
+                                      .text
+                                      .color(redColor)
+                                      .fontFamily(bold)
+                                      .make(),
+                                ],
+                              )
+                                  .box
+                                  .white
+                                  .margin(
+                                      const EdgeInsets.symmetric(horizontal: 4))
+                                  .roundedSM
+                                  .padding(const EdgeInsets.all(8))
+                                  .make()),
+                    ),
+                  )
                 ],
               ),
             ),
