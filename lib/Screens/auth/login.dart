@@ -25,8 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
               10.heightBox,
               Column(
                 children: [
-                  customTextfield(hint: emailHint, title: email),
-                  passwordField(hint: passwordHint, title: password),
+                  customTextfield(
+                    hint: emailHint,
+                    title: email,
+                  ),
+                  customTextfield(hint: passwordHint, title: password),
                   Align(
                       alignment: Alignment.bottomRight,
                       child: TextButton(
@@ -35,7 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     backcolor: redColor,
                     textColor: whiteColor,
                     onPressed: () {
-                      Get.to(()=>const Home(),duration: const Duration(seconds: 1));
+                      Get.to(() => const Home(),
+                          duration: const Duration(seconds: 1));
                     },
                     title: login,
                   ).box.width(context.screenWidth - 50).make(),

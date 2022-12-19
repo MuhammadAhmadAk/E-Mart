@@ -52,5 +52,9 @@ const vedio = "Vedios",
     sellerPolicy = "Seller Policy",
     returnPolicy = "Return Policy",
     supportPolicy = "Support Policy",
-    productsYouMayLike="Products you may also Like"
-    ;
+    productsYouMayLike = "Products you may also Like";
+const wishList = "My WishList", order = "My Orders", messages = "Messages";
+
+const loginSuccess = "Login Successfully",
+    loginFailed = "Login Failed",
+    logout = "Logout";

@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   customTextfield(hint: nameHint, title: name),
                   customTextfield(hint: emailHint, title: email),
-                  passwordField(hint: passwordHint, title: password),
+                  customTextfield(hint: passwordHint, title: password),
                   Row(
                     children: [
                       GetBuilder<MainController>(builder: (controller) {
