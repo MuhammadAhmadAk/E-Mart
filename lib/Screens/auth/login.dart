@@ -1,5 +1,6 @@
-import 'package:emart_app/Screens/auth/signup.dart';
+import 'package:emart_app/Controller/auth_controller.dart';
 import 'package:emart_app/Screens/Home_Directory/home.dart';
+import 'package:emart_app/Screens/auth/signup.dart';
 import 'package:emart_app/consts/consts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return backGroundWidget(Scaffold(
@@ -26,10 +28,15 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 children: [
                   customTextfield(
-                    hint: emailHint,
-                    title: email,
-                  ),
-                  customTextfield(hint: passwordHint, title: password),
+                      hint: emailHint,
+                      title: email,
+                      isPass: false,
+                      controller: authController.emailController),
+                  customTextfield(
+                      hint: passwordHint,
+                      title: password,
+                      isPass: true,
+                      controller: authController.passwordController),
                   Align(
                       alignment: Alignment.bottomRight,
                       child: TextButton(
@@ -37,9 +44,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   OurButtons(
                     backcolor: redColor,
                     textColor: whiteColor,
-                    onPressed: () {
-                      Get.to(() => const Home(),
-                          duration: const Duration(seconds: 1));
+                    onPressed: () async {
+                      await authController
+                          .loginMethod(context: context)
+                          .then((value) {
+                        if (value != null) {
+                          VxToast.show(context, msg: loginSuccess);
+                          Get.offAll(() => const Home());
+                        }
+                      });
                     },
                     title: login,
                   ).box.width(context.screenWidth - 50).make(),
@@ -54,9 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     backcolor: lightGolden,
                     textColor: redColor,
                     onPressed: () {
-                      Get.to(() => const SignUpScreen(),
-                          transition: Transition.upToDown,
-                          duration: const Duration(seconds: 2));
+                      Get.to(() => const SignUpScreen());
                     },
                     title: signUp,
                   ).box.width(context.screenWidth - 50).make(),

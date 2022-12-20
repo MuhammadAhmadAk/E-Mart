@@ -1,12 +1,21 @@
-import 'package:emart_app/Controller/main_controller.dart';
+import 'package:emart_app/Controller/auth_controller.dart';
+import 'package:emart_app/Screens/Home_Directory/home.dart';
 import 'package:emart_app/consts/consts.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  var authController = Get.put(AuthController());
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    // var controller = Get.put(MainController());
     return backGroundWidget(Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
@@ -16,67 +25,54 @@ class SignUpScreen extends StatelessWidget {
               (context.screenHeight * 0.1).heightBox,
               appLogo(),
               10.heightBox,
-              'Join the  $appname'.text.fontFamily(bold).white.size(22).make(),
+              'Login Into $appname'.text.fontFamily(bold).white.size(22).make(),
               10.heightBox,
               Column(
                 children: [
-                  customTextfield(hint: nameHint, title: name),
-                  customTextfield(hint: emailHint, title: email),
-                  customTextfield(hint: passwordHint, title: password),
-                  Row(
-                    children: [
-                      GetBuilder<MainController>(builder: (controller) {
-                        return Checkbox(
-                            fillColor: MaterialStateProperty.all(redColor),
-                            checkColor: whiteColor,
-                            value: controller.isCheck,
-                            onChanged: (newValue) {
-                              controller.ischeckbox(newValue);
-                            });
-                      }),
-                      5.widthBox,
-                      Expanded(
-                        child: RichText(
-                          text: const TextSpan(children: [
-                            TextSpan(
-                                text: 'I agree to the ',
-                                style: TextStyle(
-                                    color: fontGrey, fontFamily: regular)),
-                            TextSpan(
-                                text: termAndCondition,
-                                style: TextStyle(
-                                    color: redColor, fontFamily: regular)),
-                            TextSpan(
-                                text: privacyPolicy,
-                                style: TextStyle(
-                                    color: fontGrey, fontFamily: regular))
-                          ]),
-                        ),
-                      ),
-                    ],
-                  ),
-                  GetBuilder<MainController>(builder: (controller) {
-                    return OurButtons(
-                      backcolor: controller.isCheck ? redColor : lightGrey,
-                      textColor: controller.isCheck ? whiteColor : darkFontGrey,
-                      onPressed: () {},
-                      title: signUp,
-                    ).box.width(context.screenWidth - 50).make();
-                  }),
-                  20.heightBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      alreadyHaveAccount.text.fontFamily(regular).make(),
-                      login.text
-                          .fontFamily(bold)
-                          .color(redColor)
-                          .make()
-                          .onTap(() {
-                        Get.back();
-                      }),
-                    ],
-                  )
+                  customTextfield(
+                      hint: "Name",
+                      title: name,
+                      controller: nameController,
+                      isPass: false),
+                  customTextfield(
+                      hint: emailHint,
+                      title: email,
+                      controller: emailController,
+                      isPass: false),
+                  customTextfield(
+                      hint: passwordHint,
+                      title: password,
+                      controller: passwordController,
+                      isPass: true),
+                  10.heightBox,
+                  OurButtons(
+                    backcolor: redColor,
+                    textColor: whiteColor,
+                    onPressed: () async {
+                      try {
+                        await authController
+                            .signUpMethod(
+                          context: context,
+                          email: emailController.text,
+                          password: passwordController.text,
+                        )
+                            .then((value) {
+                          authController.storeUserData(
+                              email: emailController.text,
+                              password: passwordController.text,
+                              name: nameController.text);
+                        }).then((value) {
+                          VxToast.show(context, msg: loginSuccess);
+                          Get.offAll(() => const Home());
+                        });
+                      } catch (e) {
+                        auth.signOut();
+                        VxToast.show(context, msg: e.toString());
+                      }
+                    },
+                    title: signUp,
+                  ).box.width(context.screenWidth - 50).make(),
+                  5.heightBox,
                 ],
               )
                   .box
