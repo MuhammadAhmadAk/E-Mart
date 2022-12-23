@@ -3,6 +3,7 @@ import 'package:emart_app/consts/consts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
+ var isLoading= false.obs;
   //textfieldsLogin
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -34,7 +35,7 @@ class AuthController extends GetxController {
     DocumentReference store =
         firestore.collection(userCollection).doc(currentUser!.uid);
     store.set(
-        {'name': name, 'passeword': password, 'email': email, 'imgUrl': ''});
+        {'name': name, 'passeword': password, 'email': email, 'imgUrl': '','id':currentUser!.uid});
   }
 
   signOutMethod(context) async {

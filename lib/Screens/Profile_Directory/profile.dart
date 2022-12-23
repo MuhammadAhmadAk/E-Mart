@@ -1,4 +1,5 @@
 import 'package:emart_app/Controller/auth_controller.dart';
+import 'package:emart_app/Screens/Profile_Directory/edit_profile_screen.dart';
 import 'package:emart_app/consts/consts.dart';
 
 import 'components/detail_card.dart';
@@ -17,7 +18,9 @@ class ProfileScreen extends StatelessWidget {
             child: Align(
               alignment: Alignment.topRight,
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => EditProfileScreen());
+                  },
                   icon: const Icon(
                     Icons.edit,
                     color: whiteColor,

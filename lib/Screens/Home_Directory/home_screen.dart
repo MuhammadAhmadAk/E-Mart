@@ -20,8 +20,8 @@ class HomeScreen extends StatelessWidget {
               height: 60,
               color: lightGrey,
               alignment: Alignment.center,
-              child: TextFormField(
-                decoration: const InputDecoration(
+              child: const TextField(
+                decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: searchAnyThing,
                     fillColor: whiteColor,
@@ -219,43 +219,46 @@ class HomeScreen extends StatelessWidget {
                     10.heightBox,
                     GridView.builder(
                       shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 6,
-                        gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,mainAxisSpacing: 8, crossAxisSpacing: 8,mainAxisExtent: 300),
-                        itemBuilder: (context, index) {
-                          return Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                imgP5,
-                                height: 200,
-                                width: 200,
-                                fit: BoxFit.cover,
-                              ),
-                             const Spacer(),
-                              "Laptop 4GB/64Gb"
-                                  .text
-                                  .fontFamily(semibold)
-                                  .color(darkFontGrey)
-                                  .make(),
-                              10.heightBox,
-                              "\$600"
-                                  .text
-                                  .color(redColor)
-                                  .fontFamily(bold)
-                                  .make(),
-                            ],
-                          )
-                              .box
-                              .white
-                              .margin(const EdgeInsets.symmetric(
-                              horizontal: 4))
-                              .roundedSM
-                              .padding(const EdgeInsets.all(12))
-                              .make();
-                        },),
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 6,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 8,
+                              crossAxisSpacing: 8,
+                              mainAxisExtent: 300),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              imgP5,
+                              height: 200,
+                              width: 200,
+                              fit: BoxFit.cover,
+                            ),
+                            const Spacer(),
+                            "Laptop 4GB/64Gb"
+                                .text
+                                .fontFamily(semibold)
+                                .color(darkFontGrey)
+                                .make(),
+                            10.heightBox,
+                            "\$600"
+                                .text
+                                .color(redColor)
+                                .fontFamily(bold)
+                                .make(),
+                          ],
+                        )
+                            .box
+                            .white
+                            .margin(const EdgeInsets.symmetric(horizontal: 4))
+                            .roundedSM
+                            .padding(const EdgeInsets.all(12))
+                            .make();
+                      },
+                    ),
                   ],
                 ),
               ),
