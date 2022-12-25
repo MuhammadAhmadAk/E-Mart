@@ -35,7 +35,13 @@ class AuthController extends GetxController {
     DocumentReference store =
         firestore.collection(userCollection).doc(currentUser!.uid);
     store.set(
-        {'name': name, 'passeword': password, 'email': email, 'imgUrl': '','id':currentUser!.uid});
+        {'name': name, 'password': password,
+         'email': email, 
+         'imgUrl': '','id':currentUser!.uid,
+         'cart_count':"00",
+         'order_count':"00",
+         'wishList':"00"
+         });
   }
 
   signOutMethod(context) async {
