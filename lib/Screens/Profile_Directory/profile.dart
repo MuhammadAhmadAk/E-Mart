@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/Controller/auth_controller.dart';
 import 'package:emart_app/Controller/profile_controller.dart';
@@ -34,6 +36,9 @@ class ProfileScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     child: IconButton(
                         onPressed: () {
+                          profileController.nameController.text = data['name'];
+                          profileController.passwordController.text =
+                              data['password'];
                           Get.to(() => EditProfileScreen(
                                 data: data,
                               ));
@@ -48,11 +53,17 @@ class ProfileScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Row(
                     children: [
-                      Image.asset(
-                        imgProfile2,
-                        width: 100,
-                        fit: BoxFit.cover,
-                      ).box.roundedFull.clip(Clip.antiAlias).make(),
+                      data['imgUrl'] == null
+                          ? Image.asset(
+                              imgProfile2,
+                              width: 100,
+                              fit: BoxFit.cover,
+                            ).box.roundedFull.clip(Clip.antiAlias).make()
+                          : Image.network(
+                              data['imgUrl'],
+                              width: 80,
+                              fit: BoxFit.cover,
+                            ),
                       10.widthBox,
                       Expanded(
                           child: Column(
