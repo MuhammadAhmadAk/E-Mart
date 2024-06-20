@@ -1,6 +1,4 @@
 # Emart-App
-
-
 ![1](https://user-images.githubusercontent.com/93067257/214233849-3560d5bd-1bf6-4b45-8dc9-41326fad7328.jpeg)
 ![2](https://user-images.githubusercontent.com/93067257/214233862-21d2c9af-0f02-4328-bb41-a640ad982f13.jpeg)
 ![3](https://user-images.githubusercontent.com/93067257/214233904-e0faa49a-843a-4c99-a35d-41c8bd464a4d.jpeg)
